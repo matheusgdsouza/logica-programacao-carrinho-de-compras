@@ -1,3 +1,4 @@
+let valorTotal = 0;
 function adicionar(){
     //Pegando valores 
     let produto = document.getElementById("produto").value;
@@ -9,8 +10,15 @@ function adicionar(){
     listaProdutos.innerHTML = listaProdutos.innerHTML + `<section class="carrinho__produtos__produto">
           <span class="texto-azul">${quantidade}x</span> ${nomeProduto} <span class="texto-azul">R$${valorProduto}</span>
         </section>`;
+    //Somando os valores ao total da compra
+    let preco = valorProduto * quantidade;
+    valorTotal = valorTotal + preco
+
+    let totalCompra = document.getElementById("valor-total");
+    totalCompra.textContent = `R$${valorTotal}`;
     //Limpando o valor de quantidade para não gerar confusão
     document.getElementById("quantidade").value = " ";
+
 }
 
 function limpar(){
